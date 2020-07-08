@@ -1,0 +1,28 @@
+{
+  "name": "skeleton-express-mongodb",
+  "version": "0.1.0",
+  "description": "Skeleton for create express mongodb apps.",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Gaston Graciani",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^26.1.0",
+    "mongoose": "^5.9.22",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4"
+  }
+}

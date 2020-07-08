@@ -1,0 +1,21 @@
+APP_NAME=email-service
+NODE_ENV=development
+PORT=3000
+API_KEY=n4U5Hx6zttag8L8l6w26@zttag8L8l6w
+API_URL=http://localhost:3200
+
+# DATABASE
+
+DB_CONNECTION=mongodb
+DB_HOST=mongodb
+DB_PORT=27017
+DB_DATABASE=email-service
+DB_USERNAME=root
+DB_PASSWORD=secret
+
+# PASS ENCRYPTS
+CANT_SALTS=15
+
+# Services urls
+
+AUTH_SERVICE_URL=http://auth-service:3000
