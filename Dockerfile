@@ -6,6 +6,7 @@ RUN apk upgrade --update && apk add --no-cache python2 python2-dev gcc freetype-
 WORKDIR /usr/src/app
 
 COPY package*.json ./
+RUN npm install -g ts-node
 RUN npm install
 
 COPY . .

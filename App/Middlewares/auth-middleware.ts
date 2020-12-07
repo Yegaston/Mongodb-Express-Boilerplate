@@ -1,7 +1,8 @@
-const Axios = require("axios").default;
+import Axios from "axios";
+import express from "express";
 
 // This middleware check if token is valid and if is, save the user in the req, if you needed after.
-const checkTokenAndGetUser = (req, res, next) => {
+export const checkTokenAndGetUser = (req: any, res: any, next: any) => {
   const config = {
     headers: {
       Authorization: req.headers["authorization"],
@@ -10,7 +11,7 @@ const checkTokenAndGetUser = (req, res, next) => {
   const _url = `${process.env.AUTH_SERVICE_URL}/auth/is`;
 
   Axios.get(_url, config)
-    .then((response) => {
+    .then((response: any) => {
       console.log(response);
       const data = response.data;
       if (data.error) {
@@ -37,7 +38,7 @@ const checkTokenAndGetUser = (req, res, next) => {
             message: error.response.data.message,
             meta: error.response.data.meta,
           })
-          .status(response.status);
+          .status(401);
       }
       res
         .json({
@@ -49,5 +50,3 @@ const checkTokenAndGetUser = (req, res, next) => {
         .status(400);
     });
 };
-
-module.exports = { checkTokenAndGetUser };

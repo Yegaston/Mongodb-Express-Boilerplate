@@ -2,14 +2,14 @@ APP_NAME=email-service
 NODE_ENV=development
 PORT=3000
 API_KEY=
-API_URL=http://localhost:3200
+API_URL=http://localhost:3000
 
 # DATABASE
 
 DB_CONNECTION=mongodb
 DB_HOST=mongodb
 DB_PORT=27017
-DB_DATABASE=email-service
+DB_DATABASE=consorciar-net
 DB_USERNAME=root
 DB_PASSWORD=secret
 
@@ -18,4 +18,4 @@ CANT_SALTS=15
 
 # Services urls
 
-AUTH_SERVICE_URL=http://auth-service:3000
+# AUTH_SERVICE_URL=http://auth-service:3000

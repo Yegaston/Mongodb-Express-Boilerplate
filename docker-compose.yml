@@ -1,0 +1,49 @@
+version: "3"
+
+networks:
+  consorciar-net:
+
+services:
+  consorciar-service:
+    build: .
+    container_name: "consorciar-service"
+    restart: "unless-stopped"
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3000:3000
+      - 9229:9229
+    networks:
+      - consorciar-net
+    command: npm run dev
+  mongodb:
+    image: "mongo"
+    container_name: mongodb-consorciar
+    restart: "unless-stopped"
+    volumes:
+      - ./.mongodb:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: consorciar-net
+    ports:
+      - "27017-27019:27017-27019"
+    networks:
+      - consorciar-net
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express-consorciar
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_MONGODB_AUTH_DATABASE=admin
+      - ME_CONFIG_MONGODB_AUTH_USERNAME=
+      - ME_CONFIG_MONGODB_AUTH_PASSWORD=
+      - ME_CONFIG_BASICAUTH_USERNAME=yegaston
+      - ME_CONFIG_BASICAUTH_PASSWORD=huherade
+    depends_on:
+      - mongodb
+    ports:
+      - "8888:8081"
+    networks:
+      - consorciar-net
